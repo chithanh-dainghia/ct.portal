@@ -1,0 +1,15 @@
+{
+  "name": "svg-icons",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "glob": "10.3.3",
+    "node-html-parser": "6.1.6"
+  },
+  "type": "module"
+}

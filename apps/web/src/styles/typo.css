@@ -1,0 +1,20 @@
+.caption {
+  font-weight: normal;
+  letter-spacing: 0.15px;
+  line-height: 16.6px;
+  font-size: 13px;
+}
+
+.overline {
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  line-height: 14px;
+  font-size: 11px;
+}
+
+.body-1 {
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  line-height: 21.7px;
+  font-size: 17px;
+}

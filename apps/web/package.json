@@ -1,0 +1,39 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "eslint",
+    "start": "next start",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "9.30.4",
+    "mousetrap": "1.6.5",
+    "next": "13.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sharp": "^0.32.4",
+    "ua-parser-js": "1.0.35",
+    "ui": "*",
+    "next-auth": "4.23.1",
+    "@prisma/client": "5.2.0",
+    "@auth/prisma-adapter": "1.0.2",
+    "prisma": "5.2.0",
+    "zod": "3.22.2",
+    "react-hook-form": "7.46.1",
+    "@hookform/resolvers": "3.3.1",
+    "bcrypt": "5.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "20.5.9",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint-config-custom": "*",
+    "jest-config": "*",
+    "tsconfig": "*",
+    "@types/bcrypt": "5.0.0"
+  }
+}
