@@ -133,7 +133,7 @@ export default function RegisterScreen() {
 
           <div className={classes.forgotPasswordWrapper}>
             <Link
-              href="/signin"
+              href="/login"
               className={mergeClasses('caption', classes.forgotPassword)}
             >
               Có tài khoản, đăng nhập ?

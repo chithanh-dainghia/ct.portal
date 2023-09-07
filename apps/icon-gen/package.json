@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "tsconfig": "*",
+    "eslint-config-custom": "workspace:*",
+    "tsconfig": "workspace:*",
     "typescript": "^5.1.6"
   },
   "dependencies": {

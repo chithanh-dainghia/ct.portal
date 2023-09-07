@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
   transpilePackages: ['ui'],
 
-  // experimental: {
-  //   serverActions: true,
-  //   appDir: true,
-  //   serverComponentsExternalPackages: ['@prisma/client', 'bcrypt'],
-  // },
+  experimental: {
+    serverActions: true,
+    appDir: true,
+    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+  },
 
   async headers() {
     return [

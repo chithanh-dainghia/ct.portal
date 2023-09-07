@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import bscrypt from 'bcrypt'
+import bscrypt from 'bcryptjs'
 import { RegisterFormDataSchema } from '@/lib/schema'
 
 import { prisma } from '@/lib/prisma'

@@ -1,20 +1,31 @@
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
-import { prisma } from '@/lib/prisma'
+import { db } from '@/lib/db'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 
 export const authOptions = NextAuth({
-  // pages: {
-  //   signIn: '/signin',
-  // },
+  pages: {
+    signIn: '/login',
+  },
   session: {
     strategy: 'jwt',
   },
-  secret: process.env.SECRET,
-  debug: process.env.NODE_ENV === 'development',
-  adapter: PrismaAdapter(prisma) as any,
+  secret: process.env.NEXTAUTH_SECRET,
+  debug: true, // process.env.NODE_ENV === 'development',
+  adapter: PrismaAdapter(db),
+  logger: {
+    error(code, metadata) {
+      console.error(code, metadata)
+    },
+    warn(code) {
+      console.warn(code)
+    },
+    debug(code, metadata) {
+      console.debug(code, metadata)
+    },
+  },
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -27,7 +38,7 @@ export const authOptions = NextAuth({
           return null
         }
 
-        const user = await prisma.user.findUnique({
+        const user = await db.user.findUnique({
           where: {
             email: credentials.email,
           },

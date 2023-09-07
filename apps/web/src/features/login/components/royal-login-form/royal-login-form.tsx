@@ -134,7 +134,7 @@ export default function RoyalLoginForm() {
       </div>
       <div className={classes.forgotPasswordWrapper}>
         <Link
-          href="/signin/forgot-password"
+          href="/login/forgot-password"
           className={mergeClasses('caption', classes.forgotPassword)}
         >
           Quên mật khẩu ?
