@@ -28,7 +28,7 @@ const ExampleContent = () => {
 }
 
 export const Default = (props: PopoverProps) => (
-  <Popover {...props}>
+  <Popover {...propssss}>
     <PopoverTrigger disableButtonEnhancement>
       <Button>Popover trigger</Button>
     </PopoverTrigger>
