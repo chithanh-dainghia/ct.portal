@@ -5,6 +5,15 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
+declare module 'next-auth' {
+  interface Session {
+    user: {
+      email: string
+      password: string
+    }
+  }
+}
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -54,7 +63,6 @@ export const {
           id: user.id,
           email: user.email,
           name: user.name,
-          randomKey: 'Hey cool',
         }
       },
     }),

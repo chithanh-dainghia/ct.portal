@@ -2,7 +2,7 @@ import React from 'react'
 import { Space_Grotesk } from 'next/font/google'
 
 import '../styles/index.css'
-import { AuthProvider } from '@/components'
+import { AuthProvider, CookieBanner, GoogleAnalytics } from '@/components'
 import { LoginLayout } from '@/features/layout'
 import AppProvider from '@/utils/registry'
 
@@ -26,6 +26,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         as="image"
         type="image/svg+xml"
       />
+      <GoogleAnalytics />
       <body
         style={{
           fontFamily: `${spaceGrotesk.style.fontFamily} !important`,
@@ -37,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <LoginLayout>{children}</LoginLayout>
           </AppProvider>
         </AuthProvider>
-        {children}
+        <CookieBanner />
       </body>
     </html>
   )

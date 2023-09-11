@@ -1,5 +1,5 @@
-import { LogoutButton, LoginButton } from '@/components/buttons.component'
 import React from 'react'
+import SignOutComp from '@/components/sign-out'
 
 export default function Home() {
   return (
@@ -12,8 +12,7 @@ export default function Home() {
       }}
     >
       <div>
-        <LoginButton />
-        <LogoutButton />
+        <SignOutComp />
       </div>
     </main>
   )
