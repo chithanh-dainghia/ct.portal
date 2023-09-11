@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation'
 import { type ReactNode } from 'react'
 
+import { LoginLayout } from '@/features/layout'
+
 import { getCurrentUser } from '@/lib/auth'
 
 async function getData() {
@@ -18,5 +20,5 @@ interface Props {
 export default async function AuthLayout({ children }: Props) {
   await getData()
 
-  return <>{children}</>
+  return <LoginLayout>{children}</LoginLayout>
 }

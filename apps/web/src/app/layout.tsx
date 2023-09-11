@@ -3,7 +3,6 @@ import { Space_Grotesk } from 'next/font/google'
 
 import '../styles/index.css'
 import { AuthProvider, CookieBanner, GoogleAnalytics } from '@/components'
-import { LoginLayout } from '@/features/layout'
 import AppProvider from '@/utils/registry'
 
 // If loading a variable font, you don't need to specify the font weight
@@ -13,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata = {
-  title: 'Potal',
+  title: 'ChiThanh Potal',
   description: 'ChiThanh portal',
 }
 
@@ -35,10 +34,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       >
         <AuthProvider>
           <AppProvider className="app-custom">
-            <LoginLayout>{children}</LoginLayout>
+            {children}
+            <CookieBanner />
           </AppProvider>
         </AuthProvider>
-        <CookieBanner />
       </body>
     </html>
   )

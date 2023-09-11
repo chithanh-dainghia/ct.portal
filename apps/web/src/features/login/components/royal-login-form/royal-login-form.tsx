@@ -30,10 +30,6 @@ export default function RoyalLoginForm() {
     formState: { errors },
   } = useForm<Inputs>({
     resolver: zodResolver(LoginFormDataSchema),
-    defaultValues: {
-      email: 'tienlx98@gmail.com',
-      password: '123456',
-    },
   })
 
   const router = useRouter()
@@ -93,7 +89,7 @@ export default function RoyalLoginForm() {
       </div>
       <div className={classes.forgotPasswordWrapper}>
         <Link
-          href="/signin/forgot-password"
+          href="/login/forgot-password"
           className={mergeClasses('caption', classes.forgotPassword)}
         >
           Quên mật khẩu ?

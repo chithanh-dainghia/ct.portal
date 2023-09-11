@@ -268,3 +268,14 @@ hr {
 .unfocused {
   outline: none;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #eaeaea;
+
+  border-radius: 6px;
+}
