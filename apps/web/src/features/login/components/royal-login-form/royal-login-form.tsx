@@ -1,7 +1,6 @@
 'use client'
 
 import { signIn } from 'next-auth/react'
-import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useCallback, useTransition } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -9,7 +8,6 @@ import z from 'zod'
 
 import { InputField } from '@/components'
 import { LoginFormDataSchema } from '@/lib/schema'
-import { mergeClasses } from '@fluentui/react-components'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { LoginButton } from '../login-button'
@@ -40,9 +38,8 @@ export default function RoyalLoginForm() {
     async data => {
       startTransition(async () => {
         try {
-          const result = await signIn('credentials', {
+          const result = await signIn('http-mail', {
             email: data.email,
-            password: data.password,
             redirect: false,
             callbackUrl,
           })
@@ -51,7 +48,6 @@ export default function RoyalLoginForm() {
             router.push(callbackUrl)
           }
         } catch (error) {
-          //
           console.log(error)
         }
       })
@@ -69,14 +65,6 @@ export default function RoyalLoginForm() {
           {...register('email')}
           errorMessage={errors.email?.message}
         />
-
-        <InputField
-          autoComplete="off"
-          type="password"
-          placeholder="Mật khẩu"
-          {...register('password')}
-          errorMessage={errors.password?.message}
-        />
       </div>
       <div className={classes.loginButtonWrapper}>
         <LoginButton
@@ -86,14 +74,6 @@ export default function RoyalLoginForm() {
         >
           Đăng nhập
         </LoginButton>
-      </div>
-      <div className={classes.forgotPasswordWrapper}>
-        <Link
-          href="/login/forgot-password"
-          className={mergeClasses('caption', classes.forgotPassword)}
-        >
-          Quên mật khẩu ?
-        </Link>
       </div>
     </form>
   )

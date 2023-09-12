@@ -1,10 +1,9 @@
 'use server'
 
 import { z } from 'zod'
-import bscrypt from 'bcryptjs'
 import { RegisterFormDataSchema } from '@/lib/schema'
 
-import { prisma } from '@/lib/prisma'
+import { db } from '@/lib/db'
 
 export type Inputs = z.infer<typeof RegisterFormDataSchema>
 
@@ -14,10 +13,10 @@ export async function registerUser(input: Inputs) {
 
   if (result.success) {
     const {
-      data: { email, password, name },
+      data: { email, name },
     } = result
 
-    const exist = await prisma.user.findUnique({
+    const exist = await db.user.findUnique({
       where: {
         email,
       },
@@ -27,13 +26,10 @@ export async function registerUser(input: Inputs) {
       return { success: false, error: 'Địa chỉ email đã tồn tại' }
     }
 
-    const hashedPassword = await bscrypt.hash(password, 10)
-
-    const user = await prisma.user.create({
+    const user = await db.user.create({
       data: {
         name,
         email,
-        password: hashedPassword,
       },
     })
 

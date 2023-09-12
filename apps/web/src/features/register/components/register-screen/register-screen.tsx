@@ -104,22 +104,6 @@ export default function RegisterScreen() {
               {...register('email')}
               errorMessage={errors.email?.message}
             />
-            <RegisterInput
-              type="password"
-              autoComplete="off"
-              defaultValue="123456"
-              placeholder="Mật khẩu"
-              {...register('password')}
-              errorMessage={errors.password?.message}
-            />
-            <RegisterInput
-              defaultValue="123456"
-              type="password"
-              autoComplete="off"
-              placeholder="Xác nhận mật khẩu"
-              {...register('confirmPassword')}
-              errorMessage={errors.confirmPassword?.message}
-            />
           </div>
           <div className={classes.registerButtonWrapper}>
             <RegisterButton

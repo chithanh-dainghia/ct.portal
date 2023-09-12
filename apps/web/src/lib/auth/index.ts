@@ -1,15 +1,20 @@
-import bcrypt from 'bcryptjs'
 import { db } from '@/lib/db'
 import { PrismaAdapter } from '@auth/prisma-adapter'
 
 import NextAuth from 'next-auth'
-import CredentialsProvider from 'next-auth/providers/credentials'
+import { HttpEmailProvider } from './http-email-provider'
 
 declare module 'next-auth' {
   interface Session {
     user: {
+      /** The user's id. */
+      id: string
+      /** The user's email */
       email: string
-      password: string
+      /** The user's name */
+      name: string | null
+      /** The user's picture */
+      picture: string | null
     }
   }
 }
@@ -26,47 +31,7 @@ export const {
   },
   adapter: PrismaAdapter(db),
   secret: process.env.NEXTAUTH_SECRET,
-  providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        password: { label: 'Password', type: 'password' },
-        email: { label: 'Email', type: 'email' },
-      },
-      async authorize(credentials) {
-        const { email, password } = credentials ?? {}
-
-        if (!email || !password) {
-          return null
-        }
-
-        const user = await db.user.findUnique({
-          where: {
-            email: email as string,
-          },
-        })
-
-        if (!user) {
-          return null
-        }
-
-        const passwordMatch = await bcrypt.compare(
-          credentials.password as any,
-          user.password,
-        )
-
-        if (!passwordMatch) {
-          return null
-        }
-
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-        }
-      },
-    }),
-  ],
+  providers: [HttpEmailProvider],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
