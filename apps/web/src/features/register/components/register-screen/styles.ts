@@ -3,14 +3,6 @@ import { makeStyles, shorthands } from '@fluentui/react-components'
 const REGISTER_WIDTH = '396px'
 
 export const useStyles = makeStyles({
-  root: {
-    marginTop: '80px',
-    display: 'flex',
-    alignItems: 'center',
-    flexDirection: 'column',
-    ...shorthands.gap('2rem'),
-  },
-
   registerForm: {
     '--register-form-background-color': '#fff',
     backgroundColor: 'var(--register-form-background-color)',

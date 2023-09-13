@@ -1,1 +1,1 @@
-export {}
+export * from './comet-link'

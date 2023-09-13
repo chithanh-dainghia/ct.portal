@@ -78,50 +78,47 @@ export default function RegisterScreen() {
 
   return (
     <>
-      <div className={classes.root}>
-        <Logo />
-        <form
-          onSubmit={handleSubmit(processForm)}
-          className={classes.registerForm}
-        >
-          <div className={classes.text}>Đăng Ký</div>
-          <div className={classes.inputGroup}>
-            <InputField
-              type="text"
-              autoComplete="off"
-              defaultValue="Lê Xuân Tiến"
-              placeholder="Họ và tên"
-              {...register('name')}
-              errorMessage={errors.name?.message}
-            />
-            <InputField
-              autoComplete="off"
-              placeholder="Địa chỉ mail"
-              defaultValue="tienlx98@gmail.com"
-              {...register('email')}
-              errorMessage={errors.email?.message}
-            />
-          </div>
-          <div className={classes.registerButtonWrapper}>
-            <RegisterButton
-              type="submit"
-              isPending={isPending}
-              className={classes.registerButton}
-            >
-              Đăng Ký
-            </RegisterButton>
-          </div>
+      <form
+        onSubmit={handleSubmit(processForm)}
+        className={classes.registerForm}
+      >
+        <div className={classes.text}>Đăng Ký</div>
+        <div className={classes.inputGroup}>
+          <InputField
+            type="text"
+            autoComplete="off"
+            defaultValue="Lê Xuân Tiến"
+            placeholder="Họ và tên"
+            {...register('name')}
+            errorMessage={errors.name?.message}
+          />
+          <InputField
+            autoComplete="off"
+            placeholder="Địa chỉ mail"
+            defaultValue="tienlx98@gmail.com"
+            {...register('email')}
+            errorMessage={errors.email?.message}
+          />
+        </div>
+        <div className={classes.registerButtonWrapper}>
+          <RegisterButton
+            type="submit"
+            isPending={isPending}
+            className={classes.registerButton}
+          >
+            Đăng Ký
+          </RegisterButton>
+        </div>
 
-          <div className={classes.forgotPasswordWrapper}>
-            <Link
-              href="/login"
-              className={mergeClasses('caption', classes.forgotPassword)}
-            >
-              Có tài khoản, đăng nhập ?
-            </Link>
-          </div>
-        </form>
-      </div>
+        <div className={classes.forgotPasswordWrapper}>
+          <Link
+            href="/login"
+            className={mergeClasses('caption', classes.forgotPassword)}
+          >
+            Có tài khoản, đăng nhập ?
+          </Link>
+        </div>
+      </form>
       <Toaster toasterId={toasterId} />
     </>
   )
