@@ -10,25 +10,48 @@ export default function Footer() {
   const classes = useStyles()
 
   return (
-    <div className={mergeClasses('body-1', classes.root)}>
-      <span>&copy; {new Date().getFullYear()}. </span>
-      <span>
-        Built by{' '}
-        <CometLink href={siteConfig.company.link}>
-          {siteConfig.company.name}
-        </CometLink>
-        .{' '}
-      </span>
-      <span>
-        Illustrations by{' '}
-        <CometLink href="https://facebook.com/tienlx97">Le Xuan Tien</CometLink>
-        .{' '}
-      </span>
-
-      <span>
-        <CometLink href="/privacy">Privacy</CometLink> -{' '}
-        <CometLink href="/terms">Terms</CometLink>
-      </span>
+    <div className="caption">
+      <div className={classes.externalSite}>
+        <ul>
+          <li>
+            <CometLink
+              color="primary"
+              className={classes.caption}
+              href="/terms"
+            >
+              Điều khoản
+            </CometLink>
+          </li>
+          <li>
+            <CometLink
+              color="primary"
+              className={classes.caption}
+              href="/privacy"
+            >
+              Chính sách bảo mật
+            </CometLink>
+          </li>
+        </ul>
+      </div>
+      <div className={mergeClasses('caption', classes.root)}>
+        <span>&copy; {new Date().getFullYear()}. </span>
+        <span>
+          Built by{' '}
+          <CometLink className={classes.caption} href={siteConfig.company.link}>
+            {siteConfig.company.name}
+          </CometLink>
+          .{' '}
+        </span>
+        <span>
+          Illustrations by{' '}
+          <CometLink
+            className={classes.caption}
+            href="https://facebook.com/tienlx97"
+          >
+            Le Xuan Tien
+          </CometLink>
+        </span>
+      </div>
     </div>
   )
 }

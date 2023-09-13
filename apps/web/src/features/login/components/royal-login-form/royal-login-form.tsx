@@ -148,7 +148,7 @@ export default function RoyalLoginForm() {
   return (
     <>
       <form onSubmit={handleSubmit(processForm)} className={classes.root}>
-        <div className={classes.text}>Đăng nhập</div>
+        <div className={classes.text}>Biến công ty thành cộng đồng</div>
         <div className={classes.inputGroup}>
           <InputField
             autoComplete="off"

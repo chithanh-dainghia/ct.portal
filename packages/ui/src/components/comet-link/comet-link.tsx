@@ -7,7 +7,7 @@ const CometLink = forwardRef<
   HTMLAnchorElement,
   LinkProps &
     JSX.IntrinsicElements['a'] & {
-      color?: 'secondary'
+      color?: 'secondary' | 'primary'
     }
 >(({ href, className, color, ...props }, ref) => {
   const classes = useStyles()
@@ -16,9 +16,9 @@ const CometLink = forwardRef<
     <Link
       href={href}
       className={mergeClasses(
-        'body-1',
         classes.root,
         color === 'secondary' && classes.secondary,
+        color === 'primary' && classes.primary,
         className,
       )}
       {...props}

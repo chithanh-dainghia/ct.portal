@@ -14,29 +14,48 @@ import {
 import { siteConfig } from '@/config'
 
 export interface SignInEmailProps {
+  existingUser?: boolean
   emailAddress: string
   url: string
 }
 
-export default function SignInEmail({ url, emailAddress }: SignInEmailProps) {
+export default function SignInEmail({
+  url,
+  emailAddress,
+  existingUser = false,
+}: SignInEmailProps) {
   return (
     <Html>
       <Head />
-      <Preview>{`Sign in to ${siteConfig.name}`}</Preview>
+      <Preview>
+        {existingUser
+          ? `Sign in to ${siteConfig.name}`
+          : `Welcome to ${siteConfig.name}!`}
+      </Preview>
       <Body style={body}>
         <Container style={container}>
           <Heading style={headingTop}>{siteConfig.name}</Heading>
           <Heading style={headingPrimary}>
-            <span style={bold}>Sign in</span> to{' '}
+            <span style={bold}>{existingUser ? 'Sign in' : 'Welcome'}</span> to{' '}
             <span style={bold}>{siteConfig.name}</span>
           </Heading>
           <Text style={paragraph}>
-            Welcome back to {siteConfig.name}. Tap this button to sign in to
-            your account:
+            {existingUser ? (
+              <>
+                Welcome back to {siteConfig.name}. Tap this button to sign in to
+                your account:
+              </>
+            ) : (
+              <>
+                Thanks for trying {siteConfig.name}. We&apos;re thrilled to have
+                you on board. To get started, tap this button to verify your
+                email address:
+              </>
+            )}
           </Text>
           <Section style={buttonSection}>
             <Button pX={20} pY={12} style={button} href={url}>
-              Sign in to my account
+              {existingUser ? 'Sign in to my account' : 'Verify my email'}
             </Button>
           </Section>
           <Hr style={separator} />

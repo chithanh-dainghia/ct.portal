@@ -4,12 +4,8 @@
     "target": "es2017",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@ui": [
-        "../../packages/ui/src/*"
-      ]
+      "@/*": ["src/*"],
+      "@ui/*": ["../../packages/ui/src/*"]
     },
     "strict": true,
     "plugins": [
@@ -25,7 +21,5 @@
     "**/*.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
