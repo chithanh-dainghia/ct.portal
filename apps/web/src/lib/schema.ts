@@ -25,7 +25,4 @@ export const LoginFormDataSchema: ZodType<LoginFormData> = z.object({
     .string()
     .nonempty({ message: 'Xin hãy nhập email' })
     .email({ message: 'Email không đúng' }),
-  password: z
-    .string({ required_error: 'Xin hãy nhập mật khẩu' })
-    .min(5, { message: 'Mật khẩu phải có tối thiểu 5 ký tự' }),
 })

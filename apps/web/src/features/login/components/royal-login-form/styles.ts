@@ -47,13 +47,4 @@ export const useStyles = makeStyles({
     width: '100%',
     height: '48px',
   },
-
-  forgotPasswordWrapper: {
-    marginTop: '1rem',
-  },
-
-  forgotPassword: {
-    color: '#1877F2',
-    fontSize: '14px',
-  },
 })

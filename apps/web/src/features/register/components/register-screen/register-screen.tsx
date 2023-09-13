@@ -4,11 +4,7 @@ import React, { useTransition } from 'react'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import {
-  LoginButton as RegisterButton,
-  LoginInput as RegisterInput,
-  Logo,
-} from '@/features/login'
+import { LoginButton as RegisterButton, Logo } from '@/features/login'
 import { RegisterFormDataSchema } from '@/lib/schema'
 import {
   Toast,
@@ -24,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { registerUser, Inputs } from './action'
 import { useStyles } from './styles'
+import { InputField } from '@/components'
 
 export default function RegisterScreen() {
   const classes = useStyles()
@@ -89,7 +86,7 @@ export default function RegisterScreen() {
         >
           <div className={classes.text}>Đăng Ký</div>
           <div className={classes.inputGroup}>
-            <RegisterInput
+            <InputField
               type="text"
               autoComplete="off"
               defaultValue="Lê Xuân Tiến"
@@ -97,7 +94,7 @@ export default function RegisterScreen() {
               {...register('name')}
               errorMessage={errors.name?.message}
             />
-            <RegisterInput
+            <InputField
               autoComplete="off"
               placeholder="Địa chỉ mail"
               defaultValue="tienlx98@gmail.com"

@@ -8,20 +8,26 @@ export async function sendVerificationRequest({
   identifier: email,
   url,
 }: SendVerificationRequestParams) {
-  const users = await db.user.findUnique({
-    where: {
-      email,
-    },
-  })
+  console.log({ email, url })
 
-  if (!users) {
-    return
+  try {
+    const user = await db.user.findUnique({
+      where: {
+        email,
+      },
+    })
+
+    if (user === null) {
+      throw Error()
+    }
+
+    await emailClient().sendEmail({
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: 'Sign In to chithanh.org',
+      react: <SignInEmail emailAddress={email} url={url} />,
+    })
+  } catch (error) {
+    throw new Error(JSON.stringify(error))
   }
-
-  await emailClient().sendEmail({
-    from: process.env.EMAIL_FROM,
-    to: email,
-    subject: 'Đăng nhập Chí Thành Portal',
-    react: <SignInEmail emailAddress={email} url={url} />,
-  })
 }
