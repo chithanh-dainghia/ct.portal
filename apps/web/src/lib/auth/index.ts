@@ -30,7 +30,7 @@ export const {
     strategy: 'jwt',
   },
   adapter: PrismaAdapter(db),
-  secret: process.env.SECRET,
+  secret: "oH+MrUxHE1MJle7+sQEncJuFLtpxpeJ7GYKlAbiBY7A=", // process.env.SECRET,
   providers: [HttpEmailProvider],
   callbacks: {
     async jwt({ token, user }) {
