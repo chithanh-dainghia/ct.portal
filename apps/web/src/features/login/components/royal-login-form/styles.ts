@@ -7,10 +7,8 @@ export const useStyles = makeStyles({
     '--login-form-background-color': '#fff',
 
     backgroundColor: 'var(--login-form-background-color)',
-    paddingBottom: '1.75rem',
-    paddingTop: '1.5rem',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
+
+    ...shorthands.padding('1.5rem', '1rem'),
     ...shorthands.borderRadius('.5rem'),
     ...shorthands.borderStyle('none'),
     width: LOGIN_WIDTH,
