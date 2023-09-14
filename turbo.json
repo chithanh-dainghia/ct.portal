@@ -33,28 +33,9 @@
 			"dependsOn": ["build"]
 		},
 
-		"dev:local": {
+		"dev": {
 			"cache": false,
 			"persistent": true
-		},
-
-		"dev:staging": {
-			"cache": false,
-			"persistent": true
-		},
-
-		"build:staging": {
-			"outputs": [".next/**", "!.next/cache/**", "dist/**"],
-			"inputs": [
-				"!**/*.spec.tsx",
-				"!**/*.spec.ts",
-				"!**/*.stories.tsx",
-				"!**/*.stories.ts",
-				"!.eslintrc.cjs",
-				"!tsconfig.eslint.json",
-				"!vitest.config.ts",
-				"!vitest.setup.ts"
-			]
 		},
 
 		"clean": {

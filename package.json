@@ -9,7 +9,6 @@
 	"scripts": {
 		"build": "turbo run build --parallel",
 		"clean": "turbo run clean --parallel && rm -rf node_modules",
-		"dev:staging": "turbo run dev:staging --parallel",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"preinstall": "npx only-allow pnpm",
 		"lint": "turbo run lint --parallel",
@@ -17,8 +16,7 @@
 		"prisma": "cd ./apps/web && pnpm prisma generate",
 		"start": "turbo run start --parallel",
 		"test": "turbo run test --parallel",
-		"build:staging": "turbo run build:staging --parallel",
-		"dev:local": "turbo run dev:local --parallel"
+		"dev": "turbo run dev --parallel"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.2",
