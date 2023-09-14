@@ -1,4 +1,10 @@
-**/node_modules
-**/.next
-**/out
-pnpm-workspace.yaml
+node_modules
+artifacts
+cache
+typechain
+build
+coverage
+out
+lib
+assets
+.next

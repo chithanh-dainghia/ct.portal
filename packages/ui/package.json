@@ -12,6 +12,10 @@
   },
   "devDependencies": {
     "typescript": "5.2.2",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "@portal/eslint-config-react": "workspace:*"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules && rm -rf .turbo"
   }
 }

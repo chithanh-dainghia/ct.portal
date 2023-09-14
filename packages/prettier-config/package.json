@@ -1,0 +1,10 @@
+{
+	"name": "@portal/prettier-config",
+	"version": "0.0.1",
+	"main": "index.js",
+	"description": "Prettier config for ouorz projects",
+	"private": true,
+	"publishConfig": {
+		"access": "public"
+	}
+}

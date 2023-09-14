@@ -40,7 +40,6 @@ export const {
       //   }
       // }
 
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (user) {
         token.id = user.id
         token.email = user.email

@@ -1,14 +1,13 @@
 module.exports = {
-  root: true,
-  // This tells ESLint to load the config from the package `eslint-config-custom`
-  parserOptions: {
-    babelOptions: {
-      presets: [require.resolve('next/babel')],
-    },
-  },
-  settings: {
-    next: {
-      rootDir: ['apps/*/', 'packages/*/'],
-    },
-  },
+	root: true,
+	extends: ["@portal/eslint-config-root"],
+	settings: {
+		next: {
+			rootDir: ["apps/*/", "packages/*/"],
+		},
+	},
+	rules: {
+		"@next/next/no-html-link-for-pages": "off",
+		"no-html-link-for-pages": "off",
+	},
 }

@@ -23,6 +23,7 @@ export default function CookieBanner() {
 
     // @ts-ignore
     window.gtag('consent', 'update', {
+      // eslint-disable-next-line camelcase
       analytics_storage: newValue,
     })
 

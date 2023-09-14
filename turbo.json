@@ -1,58 +1,43 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "inputs": [
-        "!**/*.spec.tsx",
-        "!**/*.spec.ts",
-        "!**/*.stories.tsx",
-        "!**/*.stories.ts",
-        "!.eslintrc.cjs",
-        "!tsconfig.eslint.json",
-        "!vitest.config.ts",
-        "!vitest.setup.ts"
-      ]
-    },
-    "lint": {},
-    "test": {
-      "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
-    },
-    "tsc": {
-      "dependsOn": ["build"]
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "build:dev": {
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "inputs": [
-        "!**/*.spec.tsx",
-        "!**/*.spec.ts",
-        "!**/*.stories.tsx",
-        "!**/*.stories.ts",
-        "!.eslintrc.cjs",
-        "!tsconfig.eslint.json",
-        "!vitest.config.ts",
-        "!vitest.setup.ts"
-      ]
-    },
-    "build:prod": {
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "inputs": [
-        "!**/*.spec.tsx",
-        "!**/*.spec.ts",
-        "!**/*.stories.tsx",
-        "!**/*.stories.ts",
-        "!.eslintrc.cjs",
-        "!tsconfig.eslint.json",
-        "!vitest.config.ts",
-        "!vitest.setup.ts"
-      ]
-    }
-  }
+	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": ["**/.env.*local"],
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [".next/**", "!.next/cache/**", "dist/**"],
+			"inputs": [
+				"!**/*.spec.tsx",
+				"!**/*.spec.ts",
+				"!**/*.stories.tsx",
+				"!**/*.stories.ts",
+				"!.eslintrc.cjs",
+				"!tsconfig.eslint.json",
+				"!vitest.config.ts",
+				"!vitest.setup.ts"
+			]
+		},
+
+		"start": {
+			"dependsOn": ["^build"],
+			"outputs": [],
+			"persistent": true
+		},
+		"lint": {
+			"outputs": []
+		},
+		"test": {
+			"dependsOn": ["^build"],
+			"outputs": []
+		},
+		"tsc": {
+			"dependsOn": ["build"]
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"clean": {
+			"cache": false
+		}
+	}
 }

@@ -56,8 +56,13 @@
 }
 
 #portal .system-fonts--macChrome80.sf {
-  font-family: 'Fix for Mac Chrome 80', system-ui, -apple-system,
-    BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  font-family:
+    'Fix for Mac Chrome 80',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    '.SFNSText-Regular',
+    sans-serif;
 }
 
 form {
@@ -245,7 +250,9 @@ hr {
 }
 
 .newFocused {
-  box-shadow: 0 0 0 2px var(--always-white), 0 0 0 4px var(--base-blue);
+  box-shadow:
+    0 0 0 2px var(--always-white),
+    0 0 0 4px var(--base-blue);
   outline: none;
 }
 
@@ -256,7 +263,8 @@ hr {
 }
 
 .newFocusedInset {
-  box-shadow: inset 0 0 0 2px var(--base-blue),
+  box-shadow:
+    inset 0 0 0 2px var(--base-blue),
     inset 0 0 0 4px var(--always-white);
   outline: none;
 }

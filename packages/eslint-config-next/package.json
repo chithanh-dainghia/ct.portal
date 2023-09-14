@@ -1,0 +1,25 @@
+{
+	"name": "@portal/eslint-config-next",
+	"version": "0.0.1",
+	"main": "index.js",
+	"description": "ESLint config for ouorz projects using Next.js",
+	"private": true,
+	"scripts": {
+		"clean": "rm -rf dist && rm -rf node_modules && rm -rf .turbo"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@next/eslint-plugin-next": "^13.4.19",
+		"@typescript-eslint/eslint-plugin": "^6.5.0",
+		"@typescript-eslint/parser": "^6.5.0",
+		"eslint": "^8.48.0",
+		"eslint-config-next": "^13.4.19",
+		"eslint-import-resolver-typescript": "^3.6.0",
+		"eslint-plugin-cypress": "^2.14.0",
+		"eslint-plugin-import": "^2.28.1",
+		"eslint-plugin-react": "^7.33.2",
+		"prettier-eslint": "^15.0.1"
+	}
+}

@@ -9,7 +9,7 @@ import { useStyles } from './styles'
 type LoginInputProps = {
   children?: ReactNode
   errorMessage?: ReactNode
-} & JSX.IntrinsicElements['input']
+} & React.JSX.IntrinsicElements['input']
 
 const InputField = forwardRef<HTMLInputElement, LoginInputProps>(
   ({ className, children, errorMessage, ...props }, ref) => {

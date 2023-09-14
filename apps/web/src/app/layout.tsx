@@ -1,5 +1,6 @@
 import '../styles/index.css'
 
+// eslint-disable-next-line camelcase
 import { Space_Grotesk } from 'next/font/google'
 import React from 'react'
 

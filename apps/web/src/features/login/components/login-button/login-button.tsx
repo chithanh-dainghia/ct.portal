@@ -12,7 +12,7 @@ export default function LoginButton({
   children,
   isPending = false,
   ...props
-}: JSX.IntrinsicElements['button'] & {
+}: React.JSX.IntrinsicElements['button'] & {
   isPending?: boolean
 }) {
   const classes = useStyles()
