@@ -6,7 +6,7 @@ module.exports = {
   experimental: {
     serverActions: true,
     appDir: true,
-    serverComponentsExternalPackages: ['@prisma/client', 'bcryptjs'],
+    serverComponentsExternalPackages: ['@prisma/client'],
   },
 
   async headers() {

@@ -77,6 +77,8 @@ function parseErrorMessage(error?: string | null): {
 export default function RoyalLoginForm() {
   const classes = useStyles()
 
+  console.log(process.env.NEXTAUTH_URL)
+
   const searchParams = useSearchParams()
   const toasterId = useId('toaster/login')
   const { dispatchToast } = useToastController(toasterId)
