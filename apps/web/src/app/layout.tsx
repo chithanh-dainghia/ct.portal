@@ -1,7 +1,8 @@
-import React from 'react'
-import { Space_Grotesk } from 'next/font/google'
-
 import '../styles/index.css'
+
+import { Space_Grotesk } from 'next/font/google'
+import React from 'react'
+
 import { AuthProvider, CookieBanner, GoogleAnalytics } from '@/components'
 import AppProvider from '@/utils/registry'
 

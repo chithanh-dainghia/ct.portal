@@ -4,7 +4,7 @@ import React, { useTransition } from 'react'
 
 import { SubmitHandler, useForm } from 'react-hook-form'
 
-import { LoginButton as RegisterButton, Logo } from '@/features/login'
+import { LoginButton as RegisterButton } from '@/features/login'
 import { RegisterFormDataSchema } from '@/lib/schema'
 import {
   Toast,

@@ -1,8 +1,8 @@
+import React, { ReactNode } from 'react'
+
 import { redirect } from 'next/navigation'
-import { type ReactNode } from 'react'
 
 import { LoginLayout } from '@/features/layout'
-
 import { getCurrentUser } from '@/lib/auth'
 
 async function getData() {

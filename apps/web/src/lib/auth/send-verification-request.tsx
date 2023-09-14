@@ -1,7 +1,9 @@
+import React from 'react'
+
 import { SignInEmail } from '@/components'
+import { siteConfig } from '@/config'
 import { db } from '@/lib/db'
 import { emailClient } from '@/lib/email'
-import { siteConfig } from '@/config'
 
 import type { SendVerificationRequestParams } from 'next-auth/providers'
 

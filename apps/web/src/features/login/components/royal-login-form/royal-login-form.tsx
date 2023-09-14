@@ -1,6 +1,6 @@
 'use client'
 
-import { SignInResponse, signIn } from 'next-auth/react'
+import { signIn, SignInResponse } from 'next-auth/react'
 import { useSearchParams } from 'next/navigation'
 import React, { useCallback, useEffect, useTransition } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
@@ -8,21 +8,19 @@ import z from 'zod'
 
 import { InputField } from '@/components'
 import { LoginFormDataSchema } from '@/lib/schema'
+import {
+  Toast,
+  ToastBody,
+  Toaster,
+  ToastIntent,
+  ToastTitle,
+  useId,
+  useToastController,
+} from '@fluentui/react-components'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { LoginButton } from '../login-button'
 import { useStyles } from './styles'
-import {
-  Toast,
-  ToastBody,
-  ToastIntent,
-  ToastTitle,
-  Toaster,
-  useId,
-  useToastController,
-} from '@fluentui/react-components'
-import { siteConfig } from '@/config'
-import Link from 'next/link'
 
 type Inputs = z.infer<typeof LoginFormDataSchema>
 

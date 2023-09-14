@@ -1,11 +1,12 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useStyles } from './styles'
-import { mergeClasses } from '@fluentui/react-components'
+import React, { useEffect, useState } from 'react'
 
 import { getLocalStorage, setLocalStorage } from '@/utils/storage'
+import { mergeClasses } from '@fluentui/react-components'
+
+import { useStyles } from './styles'
 
 export default function CookieBanner() {
   const classes = useStyles()

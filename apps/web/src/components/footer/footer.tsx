@@ -1,10 +1,12 @@
 'use client'
 
-import { siteConfig } from '@/config'
 import React from 'react'
-import { useStyles } from './styles'
-import { mergeClasses } from '@fluentui/react-components'
 import { CometLink } from 'ui'
+
+import { siteConfig } from '@/config'
+import { mergeClasses } from '@fluentui/react-components'
+
+import { useStyles } from './styles'
 
 export default function Footer() {
   const classes = useStyles()
