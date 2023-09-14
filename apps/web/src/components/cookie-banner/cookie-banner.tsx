@@ -32,8 +32,6 @@ export default function CookieBanner() {
     console.log('Cookie Consent: ', cookieConsent)
   }, [cookieConsent])
 
-  console.log({ cookieConsent })
-
   const onDecline = () => setCookieConsent(false)
   const onAllow = () => setCookieConsent(true)
 

@@ -13,14 +13,10 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
     "prepare": "husky install",
-    "web": "cd ./apps/web && pnpm dev",
-    "sleeklingo": "cd ./apps/web && pnpm dev",
-    "sleeklingo:start": "cd ./apps/web && pnpm start",
-    "build:dev": "cd ./apps/web && pnpm build:dev",
-    "build:prod": "cd ./apps/web && pnpm build:prod",
-    "format-lint": "prettier --config .prettierrc --check --ignore-unknown .",
-    "format-fix": "prettier --config .prettierrc --write --ignore-unknown -l .",
-    "analyze": "cd ./apps/web && pnpm analyze",
+    "portal": "cd ./apps/web && pnpm dev",
+    "portal:start": "cd ./apps/web && pnpm start",
+    "format-lint": "prettier --config .prettierrc.json --check --ignore-unknown .",
+    "format-fix": "prettier --config .prettierrc.json --write --ignore-unknown -l .",
     "prisma": "cd ./apps/web && pnpm prisma generate"
   },
   "devDependencies": {

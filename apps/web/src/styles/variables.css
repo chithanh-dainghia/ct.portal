@@ -278,7 +278,8 @@
   --tooltip-background: rgba(244, 244, 244, 0.8);
   --tooltip-background-dark: rgba(11, 11, 11, 0.8);
   --tooltip-box-shadow: 0 2px 4px 0 var(--shadow-5);
-  --tooltip-box-shadow-dark: 0 2px 4px 0 var(--shadow-5-dark) --wash: #e4e6eb;
+  --tooltip-box-shadow-dark: 0 2px 4px 0 var(--shadow-5-dark);
+  --wash: #e4e6eb;
   --web-wash: #fafbfc;
   --warning: hsl(40, 89%, 52%);
   --fb-logo-color: #2d88ff;

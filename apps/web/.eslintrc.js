@@ -1,5 +1,7 @@
-module.exports = {
-  ...require('eslint-config-custom/eslint-next'),
+const eslint = require('eslint-config-custom/eslint-next')
+
+export default {
+  ...eslint,
   parserOptions: {
     root: true,
     tsconfigRootDir: __dirname,

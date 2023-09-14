@@ -34,21 +34,27 @@ export const {
   providers: [HttpEmailProvider],
   callbacks: {
     async jwt({ token, user }) {
+      // if (user) {
+      //   return {
+      //     ...user,
+      //   }
+      // }
+
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       if (user) {
-        return {
-          ...user,
-        }
+        token.id = user.id
+        token.email = user.email
       }
 
       return token
     },
 
-    async session({ session, token }) {
-      // @ts-ignore
-      session.user = token
+    // async session({ session, token }) {
+    //   // @ts-ignore
+    //   session.user = token
 
-      return session
-    },
+    //   return session
+    // },
   },
   debug: process.env.NODE_ENV === 'development',
 })
