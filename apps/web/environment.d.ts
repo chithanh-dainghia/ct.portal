@@ -4,7 +4,7 @@ namespace NodeJS {
     RESEND_API_KEY: string
     GA_MEASUREMENT_ID: string
     DATABASE_URL: string
-    AUTH_SECRET: string
+    SECRET: string
     NEXTAUTH_URL: string
     APP_ENV: string
   }
