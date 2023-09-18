@@ -9,6 +9,16 @@ module.exports = {
     serverComponentsExternalPackages: ['@prisma/client'],
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ]
+  },
+
   async headers() {
     return [
       {

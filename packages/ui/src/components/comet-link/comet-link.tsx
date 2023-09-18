@@ -6,7 +6,7 @@ import { useStyles } from './styles'
 const CometLink = forwardRef<
   HTMLAnchorElement,
   LinkProps &
-    JSX.IntrinsicElements['a'] & {
+    React.JSX.IntrinsicElements['a'] & {
       color?: 'secondary' | 'primary'
     }
 >(({ href, className, color, ...props }, ref) => {

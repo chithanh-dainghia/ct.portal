@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import React, { ReactNode } from 'react'
 
 import { getCurrentUser } from '@/lib/auth'
+import { PrivateLayout } from '@/features/layout'
 
 async function getData() {
   const user = await getCurrentUser()
@@ -18,5 +19,5 @@ interface Props {
 export default async function AuthLayout({ children }: Props) {
   await getData()
 
-  return <>{children}</>
+  return <PrivateLayout>{children}</PrivateLayout>
 }
