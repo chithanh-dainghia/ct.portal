@@ -1,0 +1,17 @@
+{
+  "extends": "tsconfig/react-library.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["dom", "ESNext"],
+    "baseUrl": ".",
+    "noEmit": true,
+    "types": ["node"],
+    "paths": {
+      "@fb/*": ["./src/*"]
+    },
+    "allowJs": true,
+    "rootDir": "src"
+  },
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

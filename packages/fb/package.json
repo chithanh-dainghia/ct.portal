@@ -1,0 +1,26 @@
+{
+  "name": "fb",
+  "version": "0.0.0",
+  "license": "MIT",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "dependencies": {
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "next": "13.4.10",
+    "@fluentui/react-components": "9.30.4",
+    "react": "workspace:*",
+    "react-dom": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "5.2.2",
+    "tsconfig": "workspace:*",
+    "@portal/eslint-config-react": "workspace:*",
+    "ua-parser-js": "1.0.36",
+    "@types/node": "20.6.2",
+    "node": "20.6.0"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules && rm -rf .turbo"
+  }
+}

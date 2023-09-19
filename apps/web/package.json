@@ -22,13 +22,14 @@
     "next": "13.4.19",
     "next-auth": "0.0.0-manual.ffd05533",
     "prisma": "5.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "workspace:*",
+    "react-dom": "workspace:*",
     "react-hook-form": "7.46.1",
     "resend": "1.0.0",
     "sharp": "^0.32.4",
     "ua-parser-js": "1.0.35",
     "ui": "workspace:*",
+    "fb": "workspace:*",
     "zod": "3.22.2"
   },
   "devDependencies": {

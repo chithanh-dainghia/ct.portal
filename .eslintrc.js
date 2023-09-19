@@ -10,4 +10,5 @@ module.exports = {
 		"@next/next/no-html-link-for-pages": "off",
 		"no-html-link-for-pages": "off",
 	},
+	ignorePatterns: ["**/*.js"], // <<< ignore all files in test folder
 }
