@@ -1,9 +1,11 @@
+'use client'
+
 import { usePathname } from 'next/navigation'
-import React, { ReactNode, forwardRef, useMemo } from 'react'
-import { useStyles } from './styles'
-import { CometPressableOverlay } from '../comet-pressable-overlay'
-import { BaseLink, Icon } from 'ui'
+import React, { forwardRef, useMemo } from 'react'
+import { Icon } from 'ui'
+
 import { WorkGalahadUIAppsListItem } from '../work-galahad-ui-apps-list-item'
+import { WorkGalahadUIAppNavButton } from '../work-galahad-ui-app-nav-button'
 
 type Props = {
   title: string
@@ -11,15 +13,17 @@ type Props = {
   href: string
   icon: string
   isFirst: boolean
+  onHoverIn?: (...param: any) => any
+  onHoverOut?: (...param: any) => any
+  onPressIn?: (...param: any) => any
+  onPress?: (...param: any) => any
 }
 
 const m = new Set(['knowledge', 'home'])
 
 const WorkGalahadAppTabItem = forwardRef<HTMLDivElement, Props>(
-  ({ href, icon, id, title, isFirst }, ref) => {
+  ({ href, icon, id, title, isFirst, ...rest }, ref) => {
     const pathName = usePathname()
-
-    const classes = useStyles()
 
     const selected = pathName.startsWith(href)
 
@@ -51,6 +55,7 @@ const WorkGalahadAppTabItem = forwardRef<HTMLDivElement, Props>(
           selected={selected}
           preventLocalNavigation={preventLocalNavigation}
           addOn={Icon}
+          {...rest}
         />
       </WorkGalahadUIAppsListItem>
     )
@@ -75,32 +80,4 @@ const WorkGalahadUIAppTabSelectorIcon = ({
   const name = `${iconName}-${selected ? 'fill' : 'outline'}`
 
   return <Icon name={name as any} width={32} height={32} />
-}
-
-type WorkGalahadUIAppNavButtonProps = {
-  href: string
-  elementId: string
-  label: string
-  selected: boolean
-  onPress?: (...param: any) => any
-  preventLocalNavigation: boolean
-  addOn: ReactNode
-  onHoverIn?: (...param: any) => any
-  onHoverOut?: (...param: any) => any
-  onPressIn?: (...param: any) => any
-}
-
-const WorkGalahadUIAppNavButton = ({
-  addOn,
-  elementId,
-  href,
-  label,
-  preventLocalNavigation,
-  selected,
-  onHoverIn,
-  onHoverOut,
-  onPress,
-  onPressIn,
-}: WorkGalahadUIAppNavButtonProps) => {
-  return <div />
 }

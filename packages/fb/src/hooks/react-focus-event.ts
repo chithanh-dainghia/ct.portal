@@ -1,3 +1,5 @@
+'use client'
+
 // @ts-ignore
 // eslint-disable-next-line camelcase
 import { unstable_createEventHandle } from 'react-dom'

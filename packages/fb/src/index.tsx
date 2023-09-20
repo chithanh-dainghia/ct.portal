@@ -6,3 +6,5 @@ export {
   isPlatform,
   isPlatformArchitecture,
 } from './utils/user-agent/index'
+
+export * from './components'

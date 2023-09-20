@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { HTMLProps, forwardRef, useMemo, useRef } from 'react'
+import React, { HTMLProps, ReactNode, forwardRef, useMemo, useRef } from 'react'
 import { LinkProps } from 'next/link'
 import { Pressable } from '../pressable'
 import { mergeRefs } from '@fb/hooks/use-merge-refs'
@@ -40,6 +40,7 @@ const BaseLink = forwardRef<
       testid?: string
       testOnly_pressed?: boolean
       traceParams?: any
+      children: (...props: any) => any | ReactNode
     }
 >(
   (

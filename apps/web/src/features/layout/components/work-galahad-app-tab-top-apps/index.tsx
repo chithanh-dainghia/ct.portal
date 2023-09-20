@@ -11,13 +11,13 @@ const WORK_APP_TAB_SET = [
     id: 'notifications',
     title: 'Thông báo',
     href: '/notifications',
-    tabIconName: 'notifications',
+    tabIconName: 'notification',
   },
   {
     id: 'knowledge_library',
     title: 'Thư viện kiến thức',
     href: '/knowledge',
-    tabIconName: 'knowledge',
+    tabIconName: 'document',
   },
 ]
 
@@ -39,7 +39,13 @@ export default function WorkGalahadAppTabTopApps() {
   // ))
 
   return WORK_APP_TAB_SET.map((tab, index) => (
-    // <WorkGalahadAppTabItem key={tab.id} />
-    <></>
+    <WorkGalahadAppTabItem
+      key={tab.id}
+      href={tab.href}
+      icon={tab.tabIconName}
+      id={tab.id}
+      isFirst={index === 0}
+      title={tab.title}
+    />
   ))
 }
