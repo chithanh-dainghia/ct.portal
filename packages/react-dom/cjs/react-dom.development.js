@@ -45703,10 +45703,6 @@ if (process.env.NODE_ENV !== "production") {
 		exports.unstable_runWithPriority = runWithPriority
 		exports.version = ReactVersion
 
-		exports.func01 = function q() {
-			console.log("This is fake function")
-		}
-
 		/* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
 		if (
 			typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" &&

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   // reactStrictMode: true,
-  transpilePackages: ['react', 'react-dom', 'ui', 'fb'],
+  transpilePackages: ['ui', 'fb'],
 
   experimental: {
     serverActions: true,

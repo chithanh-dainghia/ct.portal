@@ -27,6 +27,7 @@ import {
 	DOMElement,
 	ReactNode,
 	ReactPortal,
+	SyntheticEvent,
 } from "react"
 
 export function findDOMNode(
@@ -124,3 +125,142 @@ export interface Renderer {
 		callback?: () => void
 	): Component<any, ComponentState> | Element | void
 }
+
+export type EventHandleOptions = {
+	capture?: boolean
+	passive?: boolean
+}
+
+export type EventType =
+	| "beforeblur"
+	| "afterblur"
+	| "abort"
+	| "auxclick"
+	| "cancel"
+	| "canplay"
+	| "canplaythrough"
+	| "click"
+	| "close"
+	| "contextmenu"
+	| "copy"
+	| "cut"
+	| "drag"
+	| "dragend"
+	| "dragenter"
+	| "dragexit"
+	| "dragleave"
+	| "dragover"
+	| "dragstart"
+	| "drop"
+	| "durationchange"
+	| "emptied"
+	| "encrypted"
+	| "ended"
+	| "error"
+	| "gotpointercapture"
+	| "input"
+	| "invalid"
+	| "keydown"
+	| "keypress"
+	| "keyup"
+	| "load"
+	| "loadeddata"
+	| "loadedmetadata"
+	| "loadstart"
+	| "lostpointercapture"
+	| "mousedown"
+	| "mousemove"
+	| "mouseout"
+	| "mouseover"
+	| "mouseup"
+	| "paste"
+	| "pause"
+	| "play"
+	| "playing"
+	| "pointercancel"
+	| "pointerdown"
+	| "pointermove"
+	| "pointerout"
+	| "pointerover"
+	| "pointerup"
+	| "progress"
+	| "ratechange"
+	| "reset"
+	| "resize"
+	| "seeked"
+	| "seeking"
+	| "stalled"
+	| "submit"
+	| "suspend"
+	| "timeupdate"
+	| "touchcancel"
+	| "touchend"
+	| "touchstart"
+	| "volumechange"
+	| "scroll"
+	| "toggle"
+	| "touchmove"
+	| "waiting"
+	| "wheel"
+	| "animationend"
+	| "animationiteration"
+	| "animationstart"
+	| "dblclick"
+	| "focusin"
+	| "focusout"
+	| "transitionend"
+	| "change"
+	| "selectionchange"
+	| "compositionend"
+	| "textInput"
+	| "compositionstart"
+	| "compositionupdate"
+
+type ReactProviderType<T> = {
+	$$typeof: symbol | number
+	_context: ReactContext<T>
+	// ...
+}
+
+type ReactContext<T> = {
+	$$typeof: symbol | number
+	Consumer: ReactContext<T>
+	Provider: ReactProviderType<T>
+	_currentValue: T
+	_currentValue2: T
+	_threadCount: number
+	// DEV only
+	_currentRenderer?: Object | null
+	_currentRenderer2?: Object | null
+	// This value may be added by application code
+	// to improve DEV tooling display names
+	displayName?: string
+
+	// only used by ServerContext
+	_defaultValue: T
+	_globalName: string
+	// ...
+}
+
+export type ReactDOMEventHandle = (
+	target: EventTarget | ReactScopeInstance,
+	callback: (event: SyntheticEvent<EventTarget>) => void
+) => () => void
+
+export type ReactScopeQuery = (
+	type: string,
+	props: any,
+	instance: any
+) => boolean
+
+export type ReactScopeInstance = {
+	DO_NOT_USE_queryAllNodes(q: ReactScopeQuery): null | Array<Object>
+	DO_NOT_USE_queryFirstNode(q: ReactScopeQuery): null | Object
+	containsNode(node: Object): boolean
+	getChildContextValues: <T>(context: ReactContext<T>) => Array<T>
+}
+
+export function unstable_createEventHandle(
+	type: EventType,
+	options?: EventHandleOptions
+): ReactDOMEventHandle
