@@ -5,7 +5,7 @@ module.exports = {
 
   experimental: {
     serverActions: true,
-    appDir: true,
+    // appDir: true,
     serverComponentsExternalPackages: ['@prisma/client'],
   },
 

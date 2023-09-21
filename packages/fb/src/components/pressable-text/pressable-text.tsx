@@ -5,15 +5,11 @@ import { useMergeRefs } from '@fb/hooks/use-merge-refs'
 import { usePressability } from '@fb/hooks/web-pressability'
 import { makeEventOptions } from '@fb/utils/passive-event-listener-util'
 import { isBrowser } from '@fb/utils/user-agent'
-import {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  // @ts-ignore
-  jsx,
-} from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+
+// @ts-ignore
+import { jsx } from 'react/jsx-runtime'
+
 import { useStyles } from './styles'
 
 const gkx5403 = false

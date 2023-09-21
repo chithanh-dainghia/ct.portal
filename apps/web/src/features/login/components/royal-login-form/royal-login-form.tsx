@@ -18,7 +18,6 @@ import {
   useToastController,
 } from '@fluentui/react-components'
 import { zodResolver } from '@hookform/resolvers/zod'
-import DOM from 'react-dom'
 
 import { LoginButton } from '../login-button'
 import { useStyles } from './styles'
@@ -74,8 +73,6 @@ function parseErrorMessage(error?: string | null): {
       }
   }
 }
-
-console.log({ DOM })
 
 export default function RoyalLoginForm() {
   const classes = useStyles()

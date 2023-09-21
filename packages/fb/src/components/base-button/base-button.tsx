@@ -1,10 +1,8 @@
 /* eslint-disable camelcase */
-import React, {
-  forwardRef,
-  useContext,
-  // @ts-ignore
-  jsx,
-} from 'react'
+import React, { forwardRef, useContext } from 'react'
+// @ts-ignore
+import { jsx } from 'react/jsx-runtime'
+
 import { Pressable } from '../pressable'
 import { PressableText } from '../pressable-text'
 import BaseButtonPopoverContext from '@fb/context/base-button-popover-context'
