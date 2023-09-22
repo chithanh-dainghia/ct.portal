@@ -7,7 +7,7 @@
   "dependencies": {
     "@fluentui/react-components": "9.30.4",
     "@types/react": "18.2.21",
-    "next": "link:/home/tienlx97/work/opensource/next.js-13.5.2/packages/next",
+    "next": "workspace:*",
     "react": "link:/home/tienlx97/work/opensource/next.js-13.5.2/node_modules/react",
     "react-dom": "link:/home/tienlx97/work/opensource/next.js-13.5.2/node_modules/react-dom"
   },
