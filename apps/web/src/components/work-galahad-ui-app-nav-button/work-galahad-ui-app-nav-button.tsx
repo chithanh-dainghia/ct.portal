@@ -74,6 +74,7 @@ const WorkGalahadUIAppNavButton = forwardRef<
                     !!largeAddOn && classes.largeAddOn,
                   )}
                 >
+                  {/* @ts-ignore */}
                   {addOn}
                 </div>
               </div>
