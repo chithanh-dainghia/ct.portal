@@ -1,53 +1,81 @@
-import { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useRef } from 'react'
 // @ts-ignore
 // eslint-disable-next-line camelcase
 import { unstable_createEventHandle } from 'react-dom'
 
 // eslint-disable-next-line camelcase
-import useUnsafeRef_DEPRECATED from './useUnsafeRef_DEPRECATED'
+// import useUnsafeRef_DEPRECATED from './useUnsafeRef_DEPRECATED'
 
 type EventOption = {
   passive?: boolean
 }
 
-function ReactUseEventReact(domEventName: string, option?: EventOption) {
-  const ref = useUnsafeRef_DEPRECATED<any>(null)
-  const current = ref.current
+type UseEventHandle = {
+  setListener: (
+    target: EventTarget,
+    listener: null | ((e: React.SyntheticEvent<EventTarget>) => void),
+  ) => void
+  clear: () => void
+}
 
-  option && (option.passive = undefined)
+function ReactUseEvent(event: string, option?: EventOption): UseEventHandle {
+  // disable for safety
+  // const handleRef = useUnsafeRef_DEPRECATED<any>(null)
+  const handleRef = useRef<UseEventHandle | null>(null)
+  let useEventHandle = handleRef.current
 
-  if (ref.current === null) {
-    var unstableEventHandle = unstable_createEventHandle(domEventName, option)
-    var map = new Map()
+  if (option) {
+    option.passive = undefined
+  }
 
-    const curr = {
-      setListener: function (_a: any, _b: any) {
-        var c = map.get(_a)
-        c !== undefined && c()
-        if (_b === null) {
-          map['delete'](_a)
+  if (handleRef.current === null) {
+    var setEventHandle = unstable_createEventHandle(event, option)
+    var clears = new Map<EventTarget, () => void>()
+
+    useEventHandle = {
+      setListener: function (
+        target: EventTarget,
+        callback: null | ((e: React.SyntheticEvent<EventTarget>) => void),
+      ) {
+        let clear = clears.get(target)
+
+        if (clear !== undefined) {
+          clear()
+        }
+
+        if (callback === null) {
+          clears['delete'](target)
           return
         }
-        c = unstableEventHandle(_a, _b)
-        map.set(_a, c)
+        clear = setEventHandle(target, callback)
+        clears.set(target, clear as any)
       },
       clear: function () {
-        var a = Array.from(map.values())
-        for (var b = 0; b < a.length; b++) a[b]()
-        map.clear()
+        // var a = Array.from(clears.values())
+        // for (var b = 0; b < a.length; b++) a[b]()
+        // clears.clear()
+        clears.forEach(c => {
+          c()
+        })
+        clears.clear()
       },
     }
 
-    ref.current = curr
+    handleRef.current = useEventHandle
   }
 
   useLayoutEffect(() => {
-    return function () {
-      current !== null && current.clear(), (ref.current = null)
+    return () => {
+      if (useEventHandle !== null) {
+        useEventHandle.clear()
+      }
+      handleRef.current = null
+      // useEventHandle !== null && useEventHandle.clear(),
+      //   (handleRef.current = null)
     }
-  }, [])
+  }, [useEventHandle])
 
-  return current
+  return useEventHandle as UseEventHandle
 }
 
-export default ReactUseEventReact
+export default ReactUseEvent

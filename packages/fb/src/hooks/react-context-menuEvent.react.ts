@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-import ReactUseEventReact from '@fb/hooks/react-use-event'
+import ReactUseEvent from '@fb/hooks/react-use-event'
 import {
   hasEventHookPropagationStopped,
   stopEventHookPropagation,
@@ -9,7 +9,7 @@ import {
 export function useContextMenu(target: any, options: any) {
   const { disabled, onContextMenu, preventDefault } = options
 
-  const contextmenuHandler = ReactUseEventReact('contextmenu')
+  const contextmenuHandler = ReactUseEvent('contextmenu')
 
   useEffect(() => {
     const curr = target.current

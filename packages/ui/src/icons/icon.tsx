@@ -1,3 +1,5 @@
+'use client'
+
 import React, { type SVGProps } from 'react'
 import { IconName } from './names'
 
@@ -9,7 +11,7 @@ export default function Icon({
 }) {
   return (
     <svg {...props}>
-      <use href={`/assets/icons/sprite.svg#${name}`} />
+      <use xlinkHref={`/assets/icons/sprite.svg#${name}`} />
     </svg>
   )
 }

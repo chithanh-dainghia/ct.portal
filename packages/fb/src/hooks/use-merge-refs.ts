@@ -6,7 +6,9 @@ export function assignRef<T = any>(
   ref: ReactRef<T> | null | undefined,
   value: T,
 ) {
-  if (ref == null) return
+  if (ref == null) {
+    return
+  }
 
   if (typeof ref === 'function') {
     ref(value)
@@ -14,7 +16,10 @@ export function assignRef<T = any>(
   }
 
   try {
-    ref.current = value
+    if (typeof ref === 'object') {
+      ref.current = value
+      return
+    }
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`)
   }

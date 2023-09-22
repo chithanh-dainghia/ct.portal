@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { useStyles } from './styles'
 import { mergeClasses } from '@fluentui/react-components'
 import { CometPressable } from '@fb/components'
@@ -17,67 +17,75 @@ type WorkGalahadUIAppNavButtonProps = {
   onPress?: (...param: any) => any
 }
 
-const WorkGalahadUIAppNavButton = ({
-  addOn,
-  elementId,
-  href,
-  label,
-  preventLocalNavigation,
-  selected,
-  onHoverIn,
-  onHoverOut,
-  onPress,
-  onPressIn,
-  largeAddOn,
-}: WorkGalahadUIAppNavButtonProps) => {
-  const classes = useStyles()
+const WorkGalahadUIAppNavButton = forwardRef<
+  HTMLElement,
+  WorkGalahadUIAppNavButtonProps
+>(
+  (
+    {
+      addOn,
+      elementId,
+      href,
+      label,
+      preventLocalNavigation,
+      selected,
+      onHoverIn,
+      onHoverOut,
+      onPress,
+      onPressIn,
+      largeAddOn,
+    },
+    ref,
+  ) => {
+    const classes = useStyles()
 
-  const children = (
-    <CometPressable
-      ref={undefined}
-      id={elementId}
-      onPress={onPress}
-      linkProps={{
-        url: href,
-        preventLocalNavigation,
-      }}
-      onPressIn={onPressIn}
-      onHoverIn={onHoverIn}
-      onHoverOut={onHoverOut}
-      className={(param: any) => {
-        const { hovered } = param
+    const children = (
+      <CometPressable
+        ref={ref}
+        id={elementId}
+        onPress={onPress}
+        linkProps={{
+          url: href,
+          preventLocalNavigation,
+        }}
+        onPressIn={onPressIn}
+        onHoverIn={onHoverIn}
+        onHoverOut={onHoverOut}
+        className={(param: any) => {
+          const { hovered, pressed } = param
 
-        return mergeClasses(
-          classes.link,
-          classes.linkLight,
-          hovered && classes.linkHoveredLight,
-          selected && classes.linkSelectedNoLabel,
-        )
-      }}
-      // eslint-disable-next-line react/no-children-prop
-      children={(param: any) => {
-        const { hovered, overlay } = param
+          return mergeClasses(
+            classes.link,
+            classes.linkLight,
+            hovered && classes.linkHoveredLight,
+            selected && classes.linkSelectedNoLabel,
+          )
+        }}
+        // eslint-disable-next-line react/no-children-prop
+        children={(param: any) => {
+          const { hovered, overlay } = param
 
-        return (
-          <>
-            <div className={classes.root}>
-              <div
-                className={mergeClasses(
-                  classes.addOn,
-                  !!largeAddOn && classes.largeAddOn,
-                )}
-              >
-                {addOn}
+          return (
+            <>
+              <div className={classes.root}>
+                <div
+                  className={mergeClasses(
+                    classes.addOn,
+                    !!largeAddOn && classes.largeAddOn,
+                  )}
+                >
+                  {addOn}
+                </div>
               </div>
-            </div>
-            {overlay}
-          </>
-        )
-      }}
-    />
-  )
+              {overlay}
+            </>
+          )
+        }}
+      />
+    )
 
-  return <span className={classes.wfull}>{children}</span>
-}
+    return <span className={classes.wfull}>{children}</span>
+  },
+)
 
 export default WorkGalahadUIAppNavButton

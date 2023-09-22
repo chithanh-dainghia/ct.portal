@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import WorkGalahadAppTabTopApps from '../work-galahad-app-tab-top-apps'
 import { useStyles } from './styles'
 

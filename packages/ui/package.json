@@ -7,9 +7,9 @@
   "dependencies": {
     "@fluentui/react-components": "9.30.4",
     "@types/react": "18.2.21",
-    "next": "workspace:*",
-    "react": "link:/home/tienlx97/work/opensource/next.js-13.5.2/node_modules/react",
-    "react-dom": "link:/home/tienlx97/work/opensource/next.js-13.5.2/node_modules/react-dom"
+    "react": "workspace:*",
+    "react-dom": "workspace:*",
+    "next": "link:/home/tienlx97/work/opensource/next.js-13.5.3-canary.1/packages/next"
   },
   "devDependencies": {
     "@portal/eslint-config-react": "workspace:*",

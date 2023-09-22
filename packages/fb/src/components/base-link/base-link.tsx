@@ -1,9 +1,17 @@
+'use client'
+
 /* eslint-disable camelcase */
 import React, { HTMLProps, ReactNode, forwardRef, useMemo, useRef } from 'react'
 import { LinkProps } from 'next/link'
-import { Pressable } from '../pressable'
+// import { Pressable } from '../pressable'
+
+const Pressable = dynamic(() => import('../pressable').then(r => r.Pressable), {
+  ssr: false,
+})
+
 import { mergeRefs } from '@fb/hooks/use-merge-refs'
 import { PressableText } from '../pressable-text'
+import dynamic from 'next/dynamic'
 
 const BaseLink = forwardRef<
   HTMLAnchorElement,
@@ -116,9 +124,7 @@ const BaseLink = forwardRef<
     } = props
 
     const ref = useMemo(
-      function () {
-        return mergeRefs(externalRef, internalRef)
-      },
+      () => mergeRefs(externalRef, internalRef),
       [externalRef, internalRef],
     )
 

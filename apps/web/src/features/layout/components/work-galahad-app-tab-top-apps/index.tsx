@@ -1,3 +1,5 @@
+import React from 'react'
+
 import WorkGalahadAppTabItem from '@/components/work-galahad-app-tab-item/work-galahad-app-tab-item'
 
 const WORK_APP_TAB_SET = [

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import ReactUseEventReact from '@fb/hooks/react-use-event'
+import ReactUseEvent from '@fb/hooks/react-use-event'
 import { hasPointerEvents, isMac } from '@fb/helpers/react-event-helpers'
 import {
   hasEventHookPropagationStopped,
@@ -45,15 +45,15 @@ export const usePress = (target: any, options: any) => {
   const { disabled, onPressStart, onPressMove, onPressEnd, onPressChange } =
     options
 
-  const pointerdownHandler = ReactUseEventReact('pointerdown')
-  const pointermoveHanlder = ReactUseEventReact('pointermove', eventOptions)
-  const pointerupHandler = ReactUseEventReact('pointerup', eventOptions)
-  const pointercancelHandler = ReactUseEventReact('pointercancel', eventOptions)
-  const mousedownHandler = ReactUseEventReact('mousedown')
-  const mouseupHandler = ReactUseEventReact('mouseup', eventOptions)
-  const mousemoveHandler = ReactUseEventReact('mousemove', eventOptions)
-  const dragstartHandler = ReactUseEventReact('dragstart', eventOptions)
-  const focusoutHandler = ReactUseEventReact('focusout', eventOptions)
+  const pointerdownHandler = ReactUseEvent('pointerdown')
+  const pointermoveHanlder = ReactUseEvent('pointermove', eventOptions)
+  const pointerupHandler = ReactUseEvent('pointerup', eventOptions)
+  const pointercancelHandler = ReactUseEvent('pointercancel', eventOptions)
+  const mousedownHandler = ReactUseEvent('mousedown')
+  const mouseupHandler = ReactUseEvent('mouseup', eventOptions)
+  const mousemoveHandler = ReactUseEvent('mousemove', eventOptions)
+  const dragstartHandler = ReactUseEvent('dragstart', eventOptions)
+  const focusoutHandler = ReactUseEvent('focusout', eventOptions)
 
   const pressRef = useRef({
     isPressed: !1,

@@ -79,5 +79,17 @@ const WorkGalahadUIAppTabSelectorIcon = ({
 }: WorkGalahadUIAppTabSelectorIconProps) => {
   const name = `${iconName}-${selected ? 'fill' : 'outline'}`
 
-  return <Icon name={name as any} width={32} height={32} />
+  return (
+    <Icon
+      color={
+        selected ? 'var(--primary-button-background)' : 'var(--secondary-icon)'
+      }
+      fill={
+        selected ? 'var(--primary-button-background)' : 'var(--secondary-icon)'
+      }
+      name={name as any}
+      width={32}
+      height={32}
+    />
+  )
 }

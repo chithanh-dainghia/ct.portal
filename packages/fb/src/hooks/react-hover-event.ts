@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 
 import { hasPointerEvents } from '@fb/helpers/react-event-helpers'
-import ReactUseEventReact from '@fb/hooks/react-use-event'
+import useEvent from '@fb/hooks/react-use-event'
 import {
   hasEventHookPropagationStopped,
   stopEventHookPropagation,
@@ -42,14 +42,14 @@ export const useHover = (target: any, options: any) => {
   const { disabled, onHoverStart, onHoverMove, onHoverEnd, onHoverChange } =
     options
 
-  const touchstartHandler = ReactUseEventReact('touchstart', hoverOptions)
-  const mouseoverHandler = ReactUseEventReact('mouseover', hoverOptions)
-  const mouseoutHandler = ReactUseEventReact('mouseout', hoverOptions)
-  const mousemoveHandler = ReactUseEventReact('mousemove', hoverOptions)
-  const pointeroverHandler = ReactUseEventReact('pointerover', hoverOptions)
-  const pointeroutHandler = ReactUseEventReact('pointerout', hoverOptions)
-  const pointermoveHandler = ReactUseEventReact('pointermove', hoverOptions)
-  const pointercancelHandler = ReactUseEventReact('pointercancel', hoverOptions)
+  const touchstartHandler = useEvent('touchstart', hoverOptions)
+  const mouseoverHandler = useEvent('mouseover', hoverOptions)
+  const mouseoutHandler = useEvent('mouseout', hoverOptions)
+  const mousemoveHandler = useEvent('mousemove', hoverOptions)
+  const pointeroverHandler = useEvent('pointerover', hoverOptions)
+  const pointeroutHandler = useEvent('pointerout', hoverOptions)
+  const pointermoveHandler = useEvent('pointermove', hoverOptions)
+  const pointercancelHandler = useEvent('pointercancel', hoverOptions)
   const hoverTouchRef = useRef({
     isHovered: false,
     isTouched: false,
@@ -144,6 +144,54 @@ export const useHover = (target: any, options: any) => {
               pointercancelHandler.setListener(document, y),
               pointeroutHandler.setListener(document, k))
             : mouseoutHandler.setListener(document, k))
+      }
+
+      /**
+      
+      d('ReactEventHelpers').hasPointerEvents
+              ? pointeroverHandler.setListener(targetCurr, function (a) {
+                  a.pointerType !== 'touch' && i(a)
+                })
+              : (mouseoverHandler.setListener(targetCurr, function (a) {
+                  hoverTouchRefCurr.isTouched || i(a)
+                }),
+                touchstartHandler.setListener(targetCurr, function () {
+                  hoverTouchRefCurr.isTouched = !0
+                }),
+                mousemoveHandler.setListener(doc, x))
+            hoverTouchRefCurr.isHovered &&
+              (d('ReactEventHelpers').hasPointerEvents
+                ? (pointermoveHandler.setListener(doc, x),
+                  pointercancelHandler.setListener(doc, y),
+                  pointeroutHandler.setListener(doc, k))
+                : mouseoutHandler.setListener(doc, k))
+
+       */
+
+      if (hasPointerEvents) {
+        pointeroverHandler.setListener(targetCurr, a => {
+          if ((a as any).pointerType !== 'touch') {
+            i(a)
+          }
+        })
+      } else {
+        mouseoverHandler.setListener(targetCurr, a => {
+          hoverTouchRefCurr.isTouched || i(a)
+        })
+        touchstartHandler.setListener(targetCurr, () => {
+          hoverTouchRefCurr.isTouched = true
+        })
+        mousemoveHandler.setListener(document, x)
+      }
+
+      if (hoverTouchRefCurr.isHovered) {
+        if (hasPointerEvents) {
+          pointermoveHandler.setListener(document, x)
+          pointercancelHandler.setListener(document, y)
+          pointeroutHandler.setListener(document, k)
+        } else {
+          mouseoutHandler.setListener(document, k)
+        }
       }
     }
   }, [

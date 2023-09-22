@@ -14,8 +14,6 @@ export default function PrivateLayout({
 }: React.JSX.IntrinsicElements['div']) {
   const classes = useStyles()
 
-  console.log({ React })
-
   return (
     <div
       className={mergeClasses(classes.root, classes.flexRight, className)}

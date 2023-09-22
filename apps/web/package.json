@@ -20,11 +20,11 @@
     "@react-email/components": "0.0.7",
     "client-only": "0.0.1",
     "fb": "workspace:*",
-    "next": "workspace:*",
     "next-auth": "0.0.0-manual.ffd05533",
+    "next": "link:/home/tienlx97/work/opensource/next.js-13.5.3-canary.1/packages/next",
     "prisma": "5.2.0",
-    "react": "link:/home/tienlx97/work/opensource/next.js-13.5.2/node_modules/react",
-    "react-dom": "link:/home/tienlx97/work/opensource/next.js-13.5.2/node_modules/react-dom",
+    "react": "workspace:*",
+    "react-dom": "workspace:*",
     "react-hook-form": "7.46.1",
     "resend": "1.0.0",
     "sharp": "^0.32.4",
@@ -38,6 +38,7 @@
     "@types/gtag.js": "0.0.13",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
     "tsconfig": "workspace:*"
   }
 }
